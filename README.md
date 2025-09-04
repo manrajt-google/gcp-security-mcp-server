@@ -8,6 +8,7 @@ https://studio.firebase.google.com/new?template=https://github.com/manrajt-googl
 
 2. Open the terminal by clicking the bottom bar
 
-3. Authorize with github by running "gh auth login"
+3. Authorize with github by running 
+```gh auth login```
 
 4. Start making changes
