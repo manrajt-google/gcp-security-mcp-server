@@ -1,5 +1,8 @@
 # No user-configurable parameters
 { pkgs, ... }: {
+  environment.systemPackages = [
+    pkgs.go
+  ];
   # Shell script that produces the final environment
   bootstrap = ''
     # Copy the folder containing the `idx-template` files to the final
