@@ -7,6 +7,7 @@ import (
 
 	scalibr "github.com/google/osv-scalibr"
 	scalibrfs "github.com/google/osv-scalibr/fs"
+	pl "github.com/google/osv-scalibr/plugin/list"
 
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
@@ -35,14 +36,14 @@ func scalibrHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.Call
 		return mcp.NewToolResultError(fmt.Sprintf("Directory '%s' does not exist", dir)), nil
 	}
 
-	// plugins, err := pl.FromNames([]string{"os", "language", "secrets"})
-	// if err != nil {
-	// 	return mcp.NewToolResultError("Error loading plugins: " + err.Error()), nil
-	// }
+	plugins, err := pl.FromNames([]string{"javascript"})
+	if err != nil {
+		return mcp.NewToolResultError("Error loading plugins: " + err.Error()), nil
+	}
 
 	cfg := &scalibr.ScanConfig{
 		ScanRoots: scalibrfs.RealFSScanRoots(dir),
-		// Plugins:   plugins,
+		Plugins:   plugins,
 	}
 
 	results := scalibr.New().Scan(context.Background(), cfg)

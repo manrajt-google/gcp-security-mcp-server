@@ -7,7 +7,7 @@ In your `~/.gemini/settings.json` file, make sure you have the following setting
 ```
 { ...file contains other config objects
   "mcpServers": {
-    "serverName": {
+    "security-tools": {
       "command": "path/to/server/binary", // should be home/user/gcp-security-mcp-server/gcp-security-mcp
       "cwd": "path/to/server/directory", // should be home/user/gcp-security-mcp-server
       "timeout": 30000,
