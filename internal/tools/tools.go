@@ -12,6 +12,7 @@ import (
 func Add(_ context.Context, s *server.MCPServer) {
 	s.AddTools(
 		greetTool(),
+		scalibrTool(),
 	)
 }
 
